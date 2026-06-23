@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>译伴 Navigation Fixture</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      body {
+        margin: 0;
+        background: #111;
+        color: #f4f0ea;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        min-height: 56px;
+        padding: 0 64px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background: #111;
+      }
+
+      .brand {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        flex: 1;
+      }
+
+      .nav-item {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        min-width: 72px;
+        color: inherit;
+        font-size: 14px;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .split-label span {
+        display: inline-block;
+      }
+
+      .nav-item[aria-expanded="true"] .mega-menu,
+      .nav-item:hover .mega-menu {
+        display: grid;
+      }
+
+      .mega-menu {
+        position: absolute;
+        top: 42px;
+        left: 0;
+        display: none;
+        grid-template-columns: repeat(3, minmax(140px, 1fr));
+        gap: 24px;
+        width: 560px;
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        background: #181818;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+      }
+
+      .mega-menu h3 {
+        margin: 0 0 10px;
+        color: #aaa;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .mega-menu ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .mega-menu li a {
+        display: block;
+        margin: 8px 0;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 32px;
+        padding: 0 14px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        color: inherit;
+        font-size: 13px;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .button.primary {
+        background: #f4f0ea;
+        color: #111;
+      }
+
+      .breadcrumb_text {
+        margin: 16px 64px 0;
+        font-size: 13px;
+        color: #cfc8be;
+      }
+
+      main {
+        max-width: 720px;
+        margin: 80px auto;
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-family: Georgia, serif;
+        font-size: 56px;
+        line-height: 1;
+      }
+
+      p {
+        color: #cfc8be;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand">Claude</div>
+      <nav aria-label="Primary navigation">
+        <a class="nav-item split-label" href="#">
+          <span>M</span><span>e</span><span>e</span><span>t</span><span>&nbsp;</span><span>C</span><span>l</span><span>a</span><span>u</span><span>d</span><span>e</span>
+        </a>
+        <a class="nav-item" href="#">
+          Platform
+          <div class="mega-menu" data-state="closed">
+            <section>
+              <h3>Products</h3>
+              <ul>
+                <li><a href="#">Claude Code</a></li>
+                <li><a href="#">Claude for Chrome</a></li>
+                <li><a href="#">Claude for Excel</a></li>
+              </ul>
+            </section>
+            <section>
+              <h3>Develop</h3>
+              <a href="#">Developer docs</a>
+              <a href="#">Console login</a>
+              <a href="#">API reference</a>
+            </section>
+            <section>
+              <h3>Models</h3>
+              <a href="#">Opus</a>
+              <a href="#">Sonnet</a>
+              <a href="#">Haiku</a>
+            </section>
+            <section>
+              <h3>Tools</h3>
+              <a href="#">Code generation</a>
+              <a href="#">Data analysis</a>
+              <a href="#">Agent workflows</a>
+            </section>
+          </div>
+        </a>
+        <a class="nav-item" href="#">Solutions</a>
+        <a class="nav-item" href="#">Pricing</a>
+        <a class="nav-item" href="#">Resources</a>
+      </nav>
+      <div class="actions">
+        <a class="button" role="button" href="#">Contact sales</a>
+        <a class="button primary" role="button" href="#">Try Claude</a>
+      </div>
+    </header>
+    <nav aria-label="Breadcrumb">
+      <div class="breadcrumb_text u-text-style-caption">
+        Centrally manage authorization for MCP connectors
+      </div>
+    </nav>
+    <main>
+      <h1>Using Claude Cowork for legal</h1>
+      <p>
+        When a question comes up about a past decision, Claude Cowork answers it from your own history of reviews, with a citation for every claim.
+      </p>
+      <ol>
+        <li><span class="step">1</span> Review the navigation menu without breaking the article list layout.</li>
+      </ol>
+    </main>
+
+    <script>
+      window.__yibanNavChecks = () => {
+        const menuLinks = [...document.querySelectorAll('.mega-menu a')];
+        const menuHeadings = [...document.querySelectorAll('.mega-menu h3')];
+        const menuItems = [...document.querySelectorAll('.mega-menu li')];
+        const topBarLinks = [...document.querySelectorAll('header nav > a.nav-item:not(.split-label)')];
+        const splitLabel = document.querySelector('header nav > a.split-label');
+        const articleLi = document.querySelector('main ol > li');
+        const breadcrumb = document.querySelector('nav[aria-label="Breadcrumb"] .breadcrumb_text');
+
+        const getWrapperMargin = (link) => {
+          const wrapper = link.querySelector('.yiban-target-wrapper');
+
+          if (!wrapper) {
+            return 0;
+          }
+
+          return Number.parseFloat(window.getComputedStyle(wrapper).marginInlineStart) || 0;
+        };
+
+        return {
+          sniffedHosts: [...document.querySelectorAll('[data-yiban-host="1"]')].map((el) => ({
+            tag: el.tagName,
+            mode: el.dataset.yibanHostMode,
+            text: el.textContent?.trim().slice(0, 24),
+          })),
+          breadcrumbUsesInline: breadcrumb
+            ? breadcrumb.dataset.yibanHostMode === 'inline' ||
+              breadcrumb.hasAttribute('data-yiban-translated') ||
+              breadcrumb.querySelector('.yiban-target-bodyInline') !== null
+            : false,
+          breadcrumbNotStuckNavLabel:
+            breadcrumb?.dataset.yibanHostMode !== 'navLabel' ||
+            breadcrumb.hasAttribute('data-yiban-translated'),
+          splitLabelMode: splitLabel?.dataset.yibanHostMode ?? null,
+          menuLinksUseNavMenu: menuLinks.map((link) => ({
+            text: link.textContent?.trim().slice(0, 24),
+            hostMode: link.dataset.yibanHostMode,
+            hostIsLink: link.hasAttribute('data-yiban-host') || link.hasAttribute('data-yiban-translated'),
+            noBr: link.querySelector(':scope > br') === null,
+          })),
+          menuHeadingsUseNavMenu: menuHeadings.map((heading) => ({
+            text: heading.textContent?.trim(),
+            hostMode: heading.dataset.yibanHostMode,
+          })),
+          menuLiNotBlockHost: menuItems.every(
+            (li) =>
+              li.dataset.yibanHostMode !== 'block' &&
+              !li.classList.contains('yiban-target-bodyBlock') &&
+              li.querySelector(':scope > br') === null,
+          ),
+          topBarHasNavLabel: topBarLinks.some(
+            (link) => link.dataset.yibanHostMode === 'navLabel' || link.querySelector('.yiban-target-navLabel'),
+          ),
+          topBarTranslationHasGap: topBarLinks
+            .filter((link) => link.querySelector('.yiban-target-wrapper'))
+            .every((link) => getWrapperMargin(link) > 0),
+          menuLinksHaveGap: menuLinks
+            .filter((link) => link.querySelector('.yiban-target-wrapper'))
+            .every((link) => getWrapperMargin(link) > 0),
+          articleLiUsesBodyBlock: articleLi
+            ? articleLi.dataset.yibanHostMode === 'block' ||
+              articleLi.querySelector(':scope > br') !== null ||
+              articleLi.hasAttribute('data-yiban-translated')
+            : false,
+        };
+      };
+    </script>
+  </body>
+</html>

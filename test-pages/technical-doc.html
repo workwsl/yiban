@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>译伴 Technical Fixture</title>
+  </head>
+  <body>
+    <main>
+      <h1>API authentication</h1>
+      <p>Send an Authorization header with a bearer token for every request.</p>
+      <p>The <code>clientId</code> field identifies your application and should not be translated.</p>
+      <pre><code>curl https://api.example.com/v1/items \
+  -H "Authorization: Bearer $TOKEN"</code></pre>
+      <p>If the token is expired, the server returns a 401 response.</p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>译伴 Article Fixture</title>
+    <style>
+      body {
+        max-width: 960px;
+        margin: 40px auto;
+        font-family: Georgia, serif;
+        line-height: 1.6;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        gap: 32px;
+        align-items: start;
+      }
+
+      h1,
+      h2 {
+        line-height: 1.2;
+      }
+
+      .hn {
+        font-weight: 600;
+      }
+
+      .slash {
+        color: #2563eb;
+      }
+
+      .steps {
+        padding-left: 1.4rem;
+      }
+
+      .steps .n {
+        font-weight: 700;
+        margin-right: 0.35rem;
+      }
+
+      .hero_blog_post_details_list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .hero_blog_post_details_item {
+        margin-bottom: 12px;
+      }
+
+      .hero_blog_post_details_content a {
+        color: #2563eb;
+        text-decoration: none;
+      }
+
+      .content-feature-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .content-feature-list a {
+        color: #2563eb;
+        text-decoration: none;
+      }
+
+      .split-hero h1 .word {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="layout">
+    <article>
+      <h1
+        class="split-hero-heading"
+        aria-label="Centrally manage authorization for MCP connectors"
+        data-animate-hero-heading
+      >
+        <div class="word" aria-hidden="true">Centrally</div>
+        <div class="word" aria-hidden="true">manage</div>
+        <div class="word" aria-hidden="true">authorization</div>
+        <div class="word" aria-hidden="true">for</div>
+        <div class="word" aria-hidden="true">MCP</div>
+        <div class="word" aria-hidden="true">connectors</div>
+      </h1>
+
+      <h1>Building reliable browser extensions</h1>
+
+      <h2><span class="hn">Step 1:</span> Set up the brief skill</h2>
+
+      <p>
+        Everything in this workflow runs on one skill — <span class="slash">/brief</span>. It knows
+        where your past decisions live, how your reviews are structured, and writes back what was
+        concluded with a citation for every claim.
+      </p>
+
+      <p>
+        A good translation workflow preserves the original content while making the translated text
+        easy to scan.
+      </p>
+
+      <ol class="steps">
+        <li>
+          <span class="n">1</span> In Customize -&gt; Plugins, open the
+          <a href="#">Legal plugin</a> and install it - it comes with the
+          <span class="slash">/brief</span> skill, built on how a working legal team uses it.
+        </li>
+        <li>Skip private input fields.</li>
+        <li>Render translations without breaking layout.</li>
+      </ol>
+
+      <ul class="content-feature-list" role="list">
+        <li>
+          <a href="https://example.com">Harvey</a>
+          uses Managed Agents to coordinate complex legal work like long-form drafting and document
+          creation. With dreaming, their agents remember what they learned between sessions.
+        </li>
+      </ul>
+    </article>
+
+    <aside class="hero_blog_post_details">
+      <ul class="hero_blog_post_details_list" role="list">
+        <li class="hero_blog_post_details_item" role="listitem">
+          <div class="hero_blog_post_details_content">
+            <a href="#" class="u-rich-text">Enterprise AI</a>
+          </div>
+        </li>
+      </ul>
+    </aside>
+  </div>
+
+  <script>
+    window.__yibanArticleChecks = () => {
+      const blockSelectors = ['article > h1:not(.split-hero-heading)', 'h2', 'article > p', 'ol.steps > li'];
+      const blockHosts = blockSelectors.flatMap((selector) => [...document.querySelectorAll(selector)]);
+      const innerSpans = ['span.hn', 'span.n', 'span.slash'].map((selector) => document.querySelector(selector));
+      const splitH1 = document.querySelector('h1.split-hero-heading');
+      const sidebarLink = document.querySelector('.hero_blog_post_details_list a');
+      const sidebarLi = document.querySelector('.hero_blog_post_details_item');
+      const contentListLi = document.querySelector('.content-feature-list > li');
+
+      return {
+        sniffedHosts: [...document.querySelectorAll('[data-yiban-host="1"]')].map((el) => ({
+          tag: el.tagName,
+          mode: el.dataset.yibanHostMode,
+          text: el.textContent?.slice(0, 40),
+        })),
+        splitH1UsesBlock:
+          splitH1?.dataset.yibanHostMode === 'block' ||
+          splitH1?.hasAttribute('data-yiban-translated'),
+        splitH1HasWrapper: splitH1?.querySelector('.yiban-target-wrapper') !== null,
+        splitH1TranslationAfterOriginal: (() => {
+          if (!splitH1) {
+            return false;
+          }
+
+          const words = [...splitH1.querySelectorAll(':scope > .word')];
+          const wrapper = splitH1.querySelector(':scope > .yiban-target-wrapper');
+
+          if (words.length === 0 || !wrapper) {
+            return false;
+          }
+
+          const lastWord = words.at(-1);
+
+          return lastWord instanceof HTMLElement && lastWord.compareDocumentPosition(wrapper) === Node.DOCUMENT_POSITION_FOLLOWING;
+        })(),
+        sidebarLinkUsesMeta:
+          sidebarLink?.dataset.yibanHostMode === 'meta' ||
+          sidebarLink?.querySelector('.yiban-target-metaInline') !== null,
+        sidebarLiNotBlockHost:
+          sidebarLi?.dataset.yibanHostMode !== 'block' &&
+          sidebarLi?.querySelector(':scope > br') === null &&
+          !sidebarLi?.classList.contains('yiban-target-bodyBlock'),
+        contentListLiUsesBlock:
+          contentListLi?.dataset.yibanHostMode === 'block' ||
+          contentListLi?.hasAttribute('data-yiban-translated'),
+        contentListDescriptionTranslated:
+          contentListLi?.hasAttribute('data-yiban-translated') === true &&
+          contentListLi?.querySelector(':scope > .yiban-target-wrapper') !== null,
+        blockHostModes: blockHosts.map((el) => ({
+          tag: el.tagName,
+          mode: el.dataset.yibanHostMode ?? el.getAttribute('data-yiban-host-mode'),
+          marked: el.hasAttribute('data-yiban-host') || el.hasAttribute('data-yiban-translated'),
+        })),
+        innerSpansHaveNoHost: innerSpans.every(
+          (el) => el && !el.hasAttribute('data-yiban-host') && !el.hasAttribute('data-yiban-translated'),
+        ),
+        innerSpanTranslated: ['span.hn', 'span.n', 'span.slash'].some((selector) =>
+          document.querySelector(`${selector} .yiban-target-wrapper`),
+        ),
+        blockHasBrAndWrapper: blockHosts
+          .filter((el) => el.hasAttribute('data-yiban-translated'))
+          .map((el) => ({
+            tag: el.tagName,
+            hasBr: el.querySelector(':scope > br') !== null,
+            wrapperInside: el.querySelector(':scope > .yiban-target-wrapper') !== null,
+          })),
+      };
+    };
+  </script>
+  </body>
+</html>
