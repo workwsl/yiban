@@ -263,10 +263,9 @@ kbd {
   border-bottom: 1px solid var(--border);
 }
 
-.section-alt > * {
+#install .section-inner {
   max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .section-header {
@@ -319,8 +318,28 @@ kbd {
   line-height: 1.55;
 }
 
+.install-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.install-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.install-panel-title {
+  margin: 0 0 20px;
+  font-size: 1rem;
+  font-weight: 650;
+}
+
 .install-steps {
-  margin: 0 0 32px;
+  margin: 0;
   padding: 0;
   list-style: none;
   counter-reset: step;
@@ -336,11 +355,22 @@ kbd {
   padding-bottom: 0;
 }
 
+.install-steps li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 36px;
+  bottom: 4px;
+  width: 2px;
+  background: rgba(26, 138, 117, 0.25);
+}
+
 .install-steps li::before {
   content: counter(step);
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 1;
   width: 32px;
   height: 32px;
   display: flex;
@@ -364,6 +394,7 @@ kbd {
   margin: 0;
   color: var(--muted);
   font-size: 15px;
+  line-height: 1.55;
 }
 
 .provider-table-wrap {
@@ -374,22 +405,91 @@ kbd {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
+  table-layout: fixed;
+}
+
+.provider-table th:nth-child(1),
+.provider-table td:nth-child(1) {
+  width: 28%;
+}
+
+.provider-table th:nth-child(2),
+.provider-table td:nth-child(2) {
+  width: 44%;
+}
+
+.provider-table th:nth-child(3),
+.provider-table td:nth-child(3) {
+  width: 28%;
 }
 
 .provider-table th,
 .provider-table td {
-  padding: 12px 16px;
+  padding: 12px 14px;
   border: 1px solid var(--border);
   text-align: left;
+  vertical-align: top;
 }
 
 .provider-table th {
-  background: var(--surface);
+  background: rgba(26, 26, 30, 0.6);
   font-weight: 600;
 }
 
 .provider-table td {
   color: var(--muted);
+}
+
+.provider-table td code {
+  word-break: break-all;
+  font-size: 0.82em;
+  line-height: 1.45;
+}
+
+.provider-cards {
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.provider-card {
+  padding: 14px 16px;
+  background: rgba(26, 26, 30, 0.5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.provider-card strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.provider-card p {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.provider-card p:last-child {
+  margin-bottom: 0;
+}
+
+.provider-card code {
+  word-break: break-all;
+  font-size: 0.82em;
+}
+
+.provider-label {
+  display: inline-block;
+  min-width: 4.5em;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .privacy-list {
@@ -432,6 +532,24 @@ kbd {
 .footer-note {
   font-size: 13px;
   opacity: 0.75;
+}
+
+@media (max-width: 900px) {
+  .install-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .install-panel {
+    padding: 20px 18px;
+  }
+
+  .provider-table-wrap {
+    display: none;
+  }
+
+  .provider-cards {
+    display: flex;
+  }
 }
 
 @media (max-width: 768px) {

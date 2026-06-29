@@ -104,65 +104,92 @@
       </section>
 
       <section id="install" class="section section-alt">
-        <div class="section-header">
-          <h2>安装与配置</h2>
-          <p>从 GitHub Releases 下载构建包，加载到浏览器即可使用。</p>
-        </div>
-        <ol class="install-steps">
-          <li>
-            <strong>下载扩展包</strong>
-            <p>
-              从
-              <a href="https://github.com/workwsl/yiban/releases/tag/v0.2.0" target="_blank" rel="noopener noreferrer">Releases</a>
-              下载 <code>yiban-v0.2.0.zip</code> 并解压。
-            </p>
-          </li>
-          <li>
-            <strong>加载扩展</strong>
-            <p>
-              打开 <code>chrome://extensions/</code> 或 <code>edge://extensions/</code>，开启「开发者模式」，点击「加载已解压的扩展程序」，选择解压后的目录。
-            </p>
-          </li>
-          <li>
-            <strong>配置模型</strong>
-            <p>
-              点击扩展图标 →「设置」，在「模型配置」中填写 API Key（DeepSeek / Qwen 预设或自定义 OpenAI-compatible），测试连接后设为默认。
-            </p>
-          </li>
-          <li>
-            <strong>开始翻译</strong>
-            <p>
-              在 Popup 中选择目标语言与 AI 专家，点击「翻译当前页」；或使用划词翻译、输入翻译页。
-            </p>
-          </li>
-        </ol>
-        <div class="provider-table-wrap">
-          <table class="provider-table">
-            <thead>
-              <tr>
-                <th>Provider</th>
-                <th>Base URL</th>
-                <th>默认模型</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>DeepSeek</td>
-                <td><code>https://api.deepseek.com</code></td>
-                <td><code>deepseek-chat</code></td>
-              </tr>
-              <tr>
-                <td>Qwen</td>
-                <td><code>https://dashscope.aliyuncs.com/compatible-mode/v1</code></td>
-                <td><code>qwen-plus</code></td>
-              </tr>
-              <tr>
-                <td>OpenAI-compatible</td>
-                <td>自定义</td>
-                <td>自定义</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="section-inner">
+          <div class="section-header">
+            <h2>安装与配置</h2>
+            <p>从 GitHub Releases 下载构建包，加载到浏览器即可使用。</p>
+          </div>
+          <div class="install-layout">
+            <div class="install-panel">
+              <h3 class="install-panel-title">安装步骤</h3>
+              <ol class="install-steps">
+                <li>
+                  <strong>下载扩展包</strong>
+                  <p>
+                    从
+                    <a href="https://github.com/workwsl/yiban/releases/tag/v0.2.0" target="_blank" rel="noopener noreferrer">Releases</a>
+                    下载 <code>yiban-v0.2.0.zip</code> 并解压。
+                  </p>
+                </li>
+                <li>
+                  <strong>加载扩展</strong>
+                  <p>
+                    打开 <code>chrome://extensions/</code> 或 <code>edge://extensions/</code>，开启「开发者模式」，点击「加载已解压的扩展程序」，选择解压后的目录。
+                  </p>
+                </li>
+                <li>
+                  <strong>配置模型</strong>
+                  <p>
+                    点击扩展图标 →「设置」，在「模型配置」中填写 API Key（DeepSeek / Qwen 预设或自定义 OpenAI-compatible），测试连接后设为默认。
+                  </p>
+                </li>
+                <li>
+                  <strong>开始翻译</strong>
+                  <p>
+                    在 Popup 中选择目标语言与 AI 专家，点击「翻译当前页」；或使用划词翻译、输入翻译页。
+                  </p>
+                </li>
+              </ol>
+            </div>
+            <div class="install-panel">
+              <h3 class="install-panel-title">预设模型参考</h3>
+              <div class="provider-table-wrap">
+                <table class="provider-table">
+                  <thead>
+                    <tr>
+                      <th>Provider</th>
+                      <th>Base URL</th>
+                      <th>默认模型</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>DeepSeek</td>
+                      <td><code>https://api.deepseek.com</code></td>
+                      <td><code>deepseek-chat</code></td>
+                    </tr>
+                    <tr>
+                      <td>Qwen</td>
+                      <td><code>https://dashscope.aliyuncs.com/compatible-mode/v1</code></td>
+                      <td><code>qwen-plus</code></td>
+                    </tr>
+                    <tr>
+                      <td>OpenAI-compatible</td>
+                      <td>自定义</td>
+                      <td>自定义</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <ul class="provider-cards">
+                <li class="provider-card">
+                  <strong>DeepSeek</strong>
+                  <p><span class="provider-label">Base URL</span> <code>https://api.deepseek.com</code></p>
+                  <p><span class="provider-label">默认模型</span> <code>deepseek-chat</code></p>
+                </li>
+                <li class="provider-card">
+                  <strong>Qwen</strong>
+                  <p><span class="provider-label">Base URL</span> <code>https://dashscope.aliyuncs.com/compatible-mode/v1</code></p>
+                  <p><span class="provider-label">默认模型</span> <code>qwen-plus</code></p>
+                </li>
+                <li class="provider-card">
+                  <strong>OpenAI-compatible</strong>
+                  <p><span class="provider-label">Base URL</span> 自定义</p>
+                  <p><span class="provider-label">默认模型</span> 自定义</p>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
