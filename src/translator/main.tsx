@@ -4,6 +4,7 @@ import { LanguageBar } from '../shared/components/LanguageBar';
 import { DEFAULT_SETTINGS } from '../shared/defaults';
 import type { ModelsResponse, PromptsResponse, RuntimeResponse, TranslateTextRuntimeResponse } from '../shared/messages';
 import type { ModelConfig, ResolvedPromptProfile, UserSettings } from '../shared/types';
+import { MarkdownOutput } from './components/MarkdownOutput';
 import './styles.css';
 
 const DEBOUNCE_MS = 800;
@@ -195,7 +196,7 @@ function Translator() {
     }
 
     if (translateStatus === 'done' && translatedText) {
-      return <p className="output-text">{translatedText}</p>;
+      return <MarkdownOutput content={translatedText} />;
     }
 
     return null;

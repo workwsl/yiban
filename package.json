@@ -1,7 +1,7 @@
 {
   "name": "yiban",
   "description": "译伴 · 双语网页翻译 Chrome/Edge 扩展",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,10 +12,12 @@
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.4",
-    "vite": "^6.0.7",
-    "typescript": "^5.7.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.287",

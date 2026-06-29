@@ -23,7 +23,8 @@ const GENERAL_SYSTEM_PROMPT = `You are a professional translation engine.
 Translate the user's input into the target language.
 Return only the translated text without explanations, notes, or summaries.
 Do not add information not present in the source.
-Preserve URLs, emails, code, variable names, commands, and structural meaning.`;
+Preserve URLs, emails, code, variable names, commands, and structural meaning.
+If the source uses Markdown formatting, preserve equivalent Markdown structure in the translation.`;
 
 const TECHNICAL_SYSTEM_PROMPT = `${GENERAL_SYSTEM_PROMPT}
 

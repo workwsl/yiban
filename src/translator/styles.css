@@ -140,6 +140,154 @@ body {
   line-height: 1.65;
 }
 
+.output-markdown {
+  font-size: 15px;
+  line-height: 1.65;
+  word-break: break-word;
+}
+
+.output-markdown > :first-child {
+  margin-top: 0;
+}
+
+.output-markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.output-markdown p,
+.output-markdown li {
+  line-height: 1.65;
+}
+
+.output-markdown p {
+  margin: 0 0 0.75em;
+}
+
+.output-markdown h1,
+.output-markdown h2,
+.output-markdown h3,
+.output-markdown h4,
+.output-markdown h5,
+.output-markdown h6 {
+  margin: 1.25em 0 0.5em;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.output-markdown h1 {
+  font-size: 1.5em;
+}
+
+.output-markdown h2 {
+  font-size: 1.3em;
+}
+
+.output-markdown h3 {
+  font-size: 1.15em;
+}
+
+.output-markdown h4,
+.output-markdown h5,
+.output-markdown h6 {
+  font-size: 1em;
+}
+
+.output-markdown ul,
+.output-markdown ol {
+  margin: 0 0 0.75em;
+  padding-left: 1.5em;
+}
+
+.output-markdown li {
+  margin: 0.25em 0;
+}
+
+.output-markdown li > p {
+  margin: 0;
+}
+
+.output-markdown code {
+  background: var(--surface);
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9em;
+  padding: 0.15em 0.35em;
+}
+
+.output-markdown pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin: 0 0 0.75em;
+  overflow-x: auto;
+  padding: 12px 16px;
+}
+
+.output-markdown pre code {
+  background: none;
+  border-radius: 0;
+  font-size: 0.85em;
+  padding: 0;
+}
+
+.output-markdown blockquote {
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+  margin: 0 0 0.75em;
+  padding: 0.25em 0 0.25em 1em;
+}
+
+.output-markdown blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.output-markdown hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 1em 0;
+}
+
+.output-markdown a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.output-markdown a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.output-markdown table {
+  border-collapse: collapse;
+  margin: 0 0 0.75em;
+  width: 100%;
+}
+
+.output-markdown th,
+.output-markdown td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.output-markdown th {
+  background: var(--surface);
+  font-weight: 600;
+}
+
+.output-markdown tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.output-markdown img {
+  max-width: 100%;
+  height: auto;
+}
+
+.output-markdown input[type="checkbox"] {
+  margin-right: 0.4em;
+}
+
 .output-status {
   margin: 0;
   color: var(--muted);
