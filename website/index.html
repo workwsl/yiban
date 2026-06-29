@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="译伴 · 双语网页翻译 — 基于 DeepSeek、Qwen 等大模型的 Chrome/Edge 浏览器扩展，支持整页双语翻译、划词翻译与输入翻译。"
+    />
+    <title>译伴 · 双语网页翻译</title>
+    <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top">
+        <img class="brand-icon" src="./assets/icon.svg" alt="" width="32" height="32" />
+        <span>译伴</span>
+      </a>
+      <nav class="site-nav" aria-label="页面导航">
+        <a href="#features">功能</a>
+        <a href="#install">安装</a>
+        <a href="#privacy">隐私</a>
+        <a class="nav-github" href="https://github.com/workwsl/yiban" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Chrome / Edge 扩展 · Manifest V3</p>
+          <h1>译伴 · 双语网页翻译</h1>
+          <p class="hero-lead">
+            使用 DeepSeek、Qwen 或 OpenAI-compatible 大模型，在网页原文下方插入译文，不破坏原有布局。支持划词翻译、输入翻译与自定义 AI 专家。
+          </p>
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="https://github.com/workwsl/yiban/releases/download/v0.2.0/yiban-v0.2.0.zip"
+            >
+              下载 v0.2.0
+            </a>
+            <a class="btn btn-secondary" href="https://github.com/workwsl/yiban" target="_blank" rel="noopener noreferrer">
+              查看源码
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="mock-browser">
+            <div class="mock-bar">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="mock-page">
+              <div class="mock-line mock-line-source"></div>
+              <div class="mock-line mock-line-source short"></div>
+              <div class="mock-line mock-line-target"></div>
+              <div class="mock-line mock-line-target short"></div>
+              <div class="mock-line mock-line-source"></div>
+              <div class="mock-line mock-line-target"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="section-header">
+          <h2>核心功能</h2>
+          <p>轻量接入，本地配置，按需翻译。</p>
+        </div>
+        <ul class="feature-grid">
+          <li class="feature-card">
+            <h3>整页双语翻译</h3>
+            <p>扫描页面文本节点，在原内容下方插入译文，保留原有排版结构。</p>
+          </li>
+          <li class="feature-card">
+            <h3>划词翻译</h3>
+            <p>选中文字后出现浮动按钮，快速查看单段译文。</p>
+          </li>
+          <li class="feature-card">
+            <h3>输入翻译</h3>
+            <p>独立翻译页，实时输入自动翻译，译文支持 Markdown 渲染。</p>
+          </li>
+          <li class="feature-card">
+            <h3>快捷键切换</h3>
+            <p>按 <kbd>Alt</kbd> + <kbd>A</kbd> 开启或停止当前页翻译。</p>
+          </li>
+          <li class="feature-card">
+            <h3>多模型支持</h3>
+            <p>DeepSeek、Qwen、任意 OpenAI-compatible 接口，可自定义 Base URL 与模型。</p>
+          </li>
+          <li class="feature-card">
+            <h3>AI 专家提示词</h3>
+            <p>内置通用与技术文档风格，支持自定义提示词与覆盖配置。</p>
+          </li>
+          <li class="feature-card">
+            <h3>翻译缓存</h3>
+            <p>本地 IndexedDB 缓存，减少重复 API 调用，提升二次访问速度。</p>
+          </li>
+          <li class="feature-card">
+            <h3>网站黑名单</h3>
+            <p>指定域名永不自动翻译，灵活控制翻译范围。</p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="install" class="section section-alt">
+        <div class="section-header">
+          <h2>安装与配置</h2>
+          <p>从 GitHub Releases 下载构建包，加载到浏览器即可使用。</p>
+        </div>
+        <ol class="install-steps">
+          <li>
+            <strong>下载扩展包</strong>
+            <p>
+              从
+              <a href="https://github.com/workwsl/yiban/releases/tag/v0.2.0" target="_blank" rel="noopener noreferrer">Releases</a>
+              下载 <code>yiban-v0.2.0.zip</code> 并解压。
+            </p>
+          </li>
+          <li>
+            <strong>加载扩展</strong>
+            <p>
+              打开 <code>chrome://extensions/</code> 或 <code>edge://extensions/</code>，开启「开发者模式」，点击「加载已解压的扩展程序」，选择解压后的目录。
+            </p>
+          </li>
+          <li>
+            <strong>配置模型</strong>
+            <p>
+              点击扩展图标 →「设置」，在「模型配置」中填写 API Key（DeepSeek / Qwen 预设或自定义 OpenAI-compatible），测试连接后设为默认。
+            </p>
+          </li>
+          <li>
+            <strong>开始翻译</strong>
+            <p>
+              在 Popup 中选择目标语言与 AI 专家，点击「翻译当前页」；或使用划词翻译、输入翻译页。
+            </p>
+          </li>
+        </ol>
+        <div class="provider-table-wrap">
+          <table class="provider-table">
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>Base URL</th>
+                <th>默认模型</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>DeepSeek</td>
+                <td><code>https://api.deepseek.com</code></td>
+                <td><code>deepseek-chat</code></td>
+              </tr>
+              <tr>
+                <td>Qwen</td>
+                <td><code>https://dashscope.aliyuncs.com/compatible-mode/v1</code></td>
+                <td><code>qwen-plus</code></td>
+              </tr>
+              <tr>
+                <td>OpenAI-compatible</td>
+                <td>自定义</td>
+                <td>自定义</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="privacy" class="section">
+        <div class="section-header">
+          <h2>隐私与安全</h2>
+          <p>API Key 与配置仅保存在你的浏览器本地。</p>
+        </div>
+        <ul class="privacy-list">
+          <li>API Key 与翻译配置保存在 <code>chrome.storage.local</code>，不上传到第三方服务器。</li>
+          <li>翻译请求由扩展 Background Service Worker 发起，网页脚本无法读取 Key。</li>
+          <li>翻译缓存存储在本地 IndexedDB，不会上传到第三方（模型 API 请求除外）。</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <span>译伴 v0.2.0</span>
+        <span class="footer-sep">·</span>
+        <a href="https://github.com/workwsl/yiban/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">更新日志</a>
+        <span class="footer-sep">·</span>
+        <a href="https://github.com/workwsl/yiban/releases" target="_blank" rel="noopener noreferrer">所有版本</a>
+      </p>
+      <p class="footer-note">Private — 当前为私有项目</p>
+    </footer>
+  </body>
+</html>

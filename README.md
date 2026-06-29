@@ -1,5 +1,7 @@
 # 译伴 · 双语网页翻译
 
+在线介绍：https://workwsl.github.io/yiban/
+
 基于 Manifest V3 的 Chrome / Edge 浏览器扩展，使用 DeepSeek、Qwen 或 OpenAI-compatible 大模型，为网页提供双语翻译与划词翻译能力。
 
 ## 功能特性
